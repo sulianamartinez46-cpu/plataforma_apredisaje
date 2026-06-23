@@ -8,58 +8,65 @@
 </head>
 <body>
 
-    <!-- 1. BARRA DE NAVEGACIÓN -->
+    <!-- 1. HEADER / NAVBAR -->
     <nav class="navbar">
         <div class="container nav-flex">
-            <a href="#" class="logo">🚀 Mi Plataforma de Aprendizaje</a>
-            <div class="nav-menu">
-                <span class="status-badge">Estudiante: Activo</span>
+            <a href="#" class="logo">⚡ Mi Plataforma de Aprendizaje</a>
+            <div class="nav-right">
+                <span class="status-badge">Estudiante: En Línea</span>
             </div>
         </div>
     </nav>
 
-    <!-- 2. HERO SECTION (BIENVENIDA) -->
+    <!-- 2. HERO SECTION -->
     <header class="hero">
         <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>Lleva tus conocimientos de redes al siguiente nivel</h1>
-                <p>Bienvenido a tu espacio personal de estudio. Aquí puedes llevar el control exacto de tus prácticas de Packet Tracer, laboratorios avanzados de Cisco y retos de conectividad.</p>
+            <div class="hero-text">
+                <h1>Infraestructura, Enrutamiento y Conectividad Cisco</h1>
+                <p>Bienvenido a tu panel avanzado de ingeniería. Aquí coordinas y mides tus destrezas prácticas en el diseño de arquitecturas de red, topologías complejas y simulación en Cisco Packet Tracer.</p>
                 
-                <!-- SECCIÓN: EL AVANCE DEL ALUMNO -->
-                <div class="progress-container">
+                <!-- SECCIÓN EXPLICITA DEL AVANCE -->
+                <div class="progress-wrapper">
                     <div class="progress-meta">
-                        <span class="progress-title">📈 El avance del alumno:</span>
+                        <span>📊 El avance del alumno:</span>
                         <span id="progress-percentage">0% Completado</span>
                     </div>
-                    <div class="progress-bar-bg">
+                    <div class="progress-bar-container">
                         <div id="progress-bar" class="progress-bar-fill"></div>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&auto=format&fit=crop&q=60" alt="Dashboard de ingeniería" class="responsive-img hero-img">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&auto=format&fit=crop&q=80" alt="Ingeniería de Redes" class="img-responsive main-img">
             </div>
         </div>
     </header>
 
-    <!-- 3. MÓDULOS DE APRENDIZAJE (DINÁMICOS LARGOS) -->
+    <!-- 3. SECCIÓN DE INTRUCCIÓN / OBJETIVOS -->
+    <section class="container info-section">
+        <div class="info-card">
+            <h2>🎯 Objetivos del Plan de Estudios Profesional</h2>
+            <p>Este entorno ha sido diseñado para estructurar el aprendizaje de manera modular. Cada tarjeta representa un entregable crítico del temario académico. Al completar las configuraciones en la terminal CLI de tus simuladores, podrás marcar el módulo para actualizar tus estadísticas globales en tiempo real.</p>
+        </div>
+    </section>
+
+    <!-- 4. REJILLA DE MÓDULOS (6 TARJETAS CON IMÁGENES) -->
     <main class="container main-content">
-        <h2 class="section-title">Laboratorios y Topologías del Curso</h2>
-        <p class="section-subtitle">Completa cada topología en Packet Tracer y marca tu progreso abajo:</p>
+        <h2 class="section-title">Módulos Técnicos y Prácticas de Laboratorio</h2>
         
         <div class="modules-grid">
             <?php foreach ($laboratorios as $lab): ?>
             <div class="card" id="card-<?php echo $lab['id']; ?>">
-                <div class="card-image-box">
-                    <img src="<?php echo $lab['imagen']; ?>" alt="<?php echo $lab['titulo']; ?>" class="responsive-img">
+                <div class="card-img-box">
+                    <img src="<?php echo $lab['imagen']; ?>" alt="<?php echo $lab['titulo']; ?>" class="img-responsive">
                 </div>
                 <div class="card-body">
-                    <span class="phase-tag <?php echo $lab['color']; ?>"><?php echo $lab['fase']; ?></span>
+                    <span class="tag <?php echo $lab['color']; ?>"><?php echo $lab['fase']; ?></span>
                     <h3><?php echo $lab['titulo']; ?></h3>
                     <p><?php echo $lab['descripcion']; ?></p>
-                    <label class="check-label">
+                    <label class="btn-check">
                         <input type="checkbox" class="task-checkbox">
-                        <span>Marcar laboratorio como terminado</span>
+                        <span>Marcar laboratorio como completado</span>
                     </label>
                 </div>
             </div>
@@ -67,44 +74,40 @@
         </div>
     </main>
 
-    <!-- 4. SECCIÓN EXTRA: ESTADÍSTICAS DEL CURSO -->
-    <section class="stats-section">
+    <!-- 5. SECCIÓN DE ESTADÍSTICAS DEL CURSO -->
+    <section class="stats-bg">
         <div class="container stats-grid">
-            <div class="stat-box">
-                <h3>40+ Horas</h3>
-                <p>Contenido Técnico</p>
+            <div class="stat-item">
+                <h3>6 Módulos</h3>
+                <p>Estructura Profesional</p>
             </div>
-            <div class="stat-box">
-                <h3>4 Grandes Bloques</h3>
-                <p>Desde CLI hasta Seguridad</p>
+            <div class="stat-item">
+                <h3>100% Responsivo</h3>
+                <p>Apto para Celulares</p>
             </div>
-            <div class="stat-box">
-                <h3>100% Práctico</h3>
-                <p>Orientado a Packet Tracer</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. SECCIÓN EXTRA: PREGUNTAS FRECUENTES -->
-    <section class="container faq-section">
-        <h2 class="section-title">Preguntas Frecuentes</h2>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <h4>¿Cómo subo mis archivos .pkt de Packet Tracer?</h4>
-                <p>Guarda tus topologías localmente y asegúrate de verificar la conectividad con comandos como 'ping' y 'traceroute' antes de subirlas al drive de tus compañeros.</p>
-            </div>
-            <div class="faq-item">
-                <h4>¿El avance se guarda automáticamente?</h4>
-                <p>Sí, la sección de "El avance del alumno" calcula de manera interactiva e instantánea el porcentaje en pantalla cada vez que marcas una meta.</p>
+            <div class="stat-item">
+                <h3>Cisco CLI</h3>
+                <p>Comandos Reales</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. FOOTER -->
+    <!-- 6. SECCIÓN DE CONTACTO / PANEL LATERAL -->
+    <section class="container contact-section">
+        <div class="contact-box">
+            <h3>¿Tienes dudas con alguna topología o comando de consola?</h3>
+            <p>Envía una consulta rápida a tus compañeros de laboratorio para resolver problemas de enrutamiento o direccionamiento IP.</p>
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Mensaje enviado (Simulado)');">
+                <input type="text" placeholder="Asunto: Ej. Error en ping OSPF" required>
+                <textarea rows="4" placeholder="Describe tu duda técnica aquí..." required></textarea>
+                <button type="submit" class="submit-btn">Enviar Mensaje al Grupo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <p>© 2026 Mi Plataforma de Aprendizaje · Todos los derechos reservados · Ingeniería en Redes</p>
-        </div>
+        <p>© 2026 Mi Plataforma de Aprendizaje · Ingeniería de Sistemas y Telecomunicaciones · Diseño Premium Responsivo</p>
     </footer>
 
     <script src="script.js"></script>
